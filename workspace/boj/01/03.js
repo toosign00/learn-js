@@ -20,9 +20,9 @@
 */
 
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().trim().split(' ');
+const fileData = fs.readFileSync(0).toString().trim().split(' ');
 
-const A = parseInt(input[0]);
-const B = parseInt(input[1]);
+const a = parseInt(fileData[0]);
+const b = parseInt(fileData[1]);
 
-console.log(A - B);
+console.log(a - b);
