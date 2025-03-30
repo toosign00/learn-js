@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "live-server workspace --port=3000 --host=localhost --no-browser",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.5.3"
+  }
+}
