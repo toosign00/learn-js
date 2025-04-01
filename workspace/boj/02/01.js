@@ -48,3 +48,6 @@ if (A > B) {
 } else {
   console.log('==');
 }
+
+console.log((A > B && '<') || (A < B && '>') || '==');
+
