@@ -58,40 +58,20 @@ const maxScore = Math.max(softwareDesign, softwareDevelopment, databaseSetup, pr
 // 다섯 과목 중 최하점 계산
 const minScore = Math.min(softwareDesign, softwareDevelopment, databaseSetup, programmingUsage, systemManagement);
 
+console.log(`총점: ${totalScore}`);
+console.log(`평균: ${averageScore}`);
+console.log(`최고점: ${maxScore}`);
+console.log(`최저점: ${minScore}`);
 
-// 합격 여부 계산
-let pass = true;
+// 합격 여부 판단
+if (minScore > 40 && averageScore >= 60) {
+  console.log('축하합니다. 합격입니다.');
+}
 
-// 모든 과목 배열로 관리
-const subjects = [
-  { name: '소프트웨어 설계', score: softwareDesign },
-  { name: '소프트웨어 개발', score: softwareDevelopment },
-  { name: '데이터베이스 구축', score: databaseSetup },
-  { name: '프로그래밍 언어 활용', score: programmingUsage },
-  { name: '정보 시스템 구축 관리', score: systemManagement },
-];
-
-
-console.log(`총점 : ${totalScore}`);
-console.log(`평균 : ${averageScore}`);
-console.log(`최고점 : ${maxScore}`);
-console.log(`최하점 : ${minScore}`);
-
-// 평균 점수 확인
 if (averageScore < 60) {
-  pass = false;
   console.log(`아쉽지만 불합격입니다. 사유: 평균 60점 미달(${averageScore}점)`);
 }
 
-// 과락 점수 확인
-subjects.forEach((subject) => {
-  if (subject.score < 40) {
-    pass = false;
-    console.log(`아쉽지만 불합격입니다. 사유: 과락 40점 미달(${subject.name}: ${subject.score}점)`);
-  }
-});
-
-// 최종 합격 여부 출력
-if (pass) {
-  console.log(`축하합니다. 합격입니다.`);
+if (minScore < 40) {
+  console.log(`아쉽지만 불합격입니다. 사유 : 과락 40점 미달(${minScore}점)`);
 }
