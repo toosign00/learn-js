@@ -19,3 +19,23 @@ n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성�
 6
 */
 
+const fs = require('fs');
+// 아래 코드로 실행하니 런타임 에러가 남
+// const fileData = fs.readFileSync(0).toString().trim();
+const fileData = fs.readFileSync('/dev/stdin').toString().trim();
+
+const N = parseInt(fileData);
+
+let sum = 0;
+
+for (let i = 1; i <= N; i++) {
+  sum += i;
+}
+
+console.log(sum);
+/*
+========== 수학 공식으로 푸는 법 ==========
+const result = ((N + 1) * N) / 2;
+
+console.log(result);
+*/
