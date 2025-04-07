@@ -2,8 +2,8 @@
 switch문
 */
 
-const pingName = '하츄핑';
-let modifier = '';
+const pingName = '머핑';
+let modifier = '모르는';
 
 switch (pingName) {
   case '하츄핑':
@@ -13,18 +13,19 @@ switch (pingName) {
     modifier = '복슬복슬';
     break;
   case '눈꽃핑':
-    modifier = '흰백의';
+    modifier = '차가운';
     break;
   case '꾸래핑':
-    modifier = '꾸러기';
+    modifier = '거짓말쟁이';
     break;
   case '빛나핑':
-    modifier = '빛나는';
+    modifier = '밝은';
     break;
   case '머핑':
-    modifier = '맛있는';
+    modifier = '달콤한';
     break;
-  default:
-    '모르는';
+  // default:
+  //   modifier = '모르는';
 }
+
 console.log(`${modifier} ${pingName}`);

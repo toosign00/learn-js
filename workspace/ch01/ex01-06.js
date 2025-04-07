@@ -3,24 +3,20 @@
 */
 
 // number
-
-let num = 100;
-let floatNum = 3.14; // 부동소수점 숫자
-
+var num = 100;
+var floatNum = 3.14;
 // string
-let s1 = 'single quote';
-let s2 = 'double quote';
-
+var s1 = 'single quote';
+var s2 = "double quote";
 // boolean
-
-let b1 = true;
-let b2 = false;
-
-// undefined
-let emptyVal;
-
-// null
-let nullVal = null;
+var b1 = true;
+var b2 = false;
+// type: undefined, value: undefined
+var emptyVal;
+// type: object, value: null
+var nullVal = null;
 
 console.log(num, floatNum, s1, s2, b1, b2, emptyVal, nullVal);
-console.log(typeof num, typeof floatNum, typeof s1, typeof s2, typeof b1, typeof b2, typeof emptyVal, typeof nullVal);
+console.log(typeof num, typeof floatNum, typeof s1, typeof s2, typeof b1, typeof b2
+            , typeof emptyVal, typeof nullVal);
+

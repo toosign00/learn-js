@@ -1,47 +1,33 @@
 /*
-
+while문
 */
 
-// 1부터 10까지 홀수의 합출력
-i = 1;
-let oddNum = 0;
-
-while (i <= 10) {
-  // 홀수인지 확인
-  if (i % 2 === 1) {
-    oddNum += i;
-  }
-  i++;
+// 1부터 10까지 홀수의 합계 출력. 25
+let i = 1;
+let sum = 0;
+// while (i <= 10) { // i=1~10
+//   if (i % 2 === 1) { // 홀수
+//     sum += i;
+//   }
+//   i++;
+// }
+while (i <= 10) { // i=1,3,5,7,9
+  sum += i;
+  i+=2;
 }
+console.log('1부터 10까지 홀수의 합계 출력', sum);
 
-console.log(oddNum);
-
-// 1부터 10까지 짝수의 합 출력
-i = 1;
-let evenNum = 0;
-
-while (i <= 10) {
-  // 짝수인지 확인
-  if (i % 2 === 0) {
-    evenNum += i;
-  }
-  i++;
+// 1부터 10까지 짝수의 합계 출력. 30
+i = 2;
+sum = 0;
+// while (i <= 10) { // i=1~10
+//   if (i % 2 === 0) { // 짝수
+//     sum += i;
+//   }
+//   i++;
+// }
+while (i <= 10) { // i=2,4,6,8,10
+  sum += i; // sum = sum + i;
+  i+=2;
 }
-
-console.log(evenNum);
-
-// 두 while 문을 합쳐서 짝수와 홀수의 합을 동시에 출력
-i = 1;
-oddNum = 0;
-evenNum = 0;
-while (i <= 10) {
-  // 홀수인지 확인
-  if (i % 2 === 1) {
-    oddNum += i;
-  } else {
-    evenNum += i;
-  }
-  i++;
-}
-console.log(oddNum);
-console.log(evenNum);
+console.log('1부터 10까지 짝수의 합계 출력', sum);

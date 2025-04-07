@@ -1,19 +1,22 @@
-// for문으로 1부터 10까지 출력
+/*
+반복문 - while문
+*/
 
-for (i = 1; i <= 10; i++) {
-  console.log(i);
+
+// 0부터 10까지 출력
+let i = 0;
+while (i <= 10) {
+  console.log(i++);
 }
 
-let oddNum = 0;
-// 홀수만 반복
-for (let i = 1; i <= 10; i += 2) {
-  oddNum += i;
-}
-console.log(oddNum);
+// 1부터 10까지의 모든 수의 합계를 출력
+let sum = 0;
 
-let evenNum = 0;
-// 짝수만 반복
-for (let i = 2; i <= 10; i += 2) {
-  evenNum += i;
+i = 1; // 초기화
+while (i <= 10) { // 조건식
+  sum += i; // 실행할 코드
+  i++; // 증감식
 }
-console.log(evenNum);
+console.log(i);
+console.log(sum);
+

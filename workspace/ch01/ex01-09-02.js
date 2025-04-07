@@ -1,31 +1,22 @@
 /*
-대입 연산자 +-를 이용해서 1부터 10까지의 모든 수의 합을 출력하시오.
-출력결과 : 55
+대입 연산자 +=을 이용해서 1부터 10까지의 모든 수의 합계를 출력하세요.
+
+출력 결과:
+55
 */
 
-const num1 = 0; // 초기값
-const num2 = 10; // 마지막 수
+var sum = 0;
 
-let result = num1;
+sum += 1; // sum = sum + 1 = 0 + 1 = 1
+sum += 2; // sum = sum + 2 = 1 + 2 = 3
+sum += 3; // sum = sum + 3 = 3 + 3 = 6
+sum += 4; // sum = sum + 4 = 6 + 4 = 10
+sum += 5; // sum = sum + 5 = 10 + 5 = 15
+sum += 6; // sum = sum + 6 = 15 + 6 = 21
+sum += 7; // sum = sum + 7 = 21 + 7 = 28
+sum += 8; // sum = sum + 8 = 28 + 8 = 36
+sum += 9; // sum = sum + 9 = 36 + 9 = 45
+sum += 10; // sum = sum + 10 = 45 + 10 = 55
 
-for (let i = 1; i <= num2; i++) {
-  result += i;
-}
+console.log(sum);
 
-console.log(result); // 55
-
-
-let sum = 0;
-
-sum += 1;
-sum += 2;
-sum += 3;
-sum += 4;
-sum += 5;
-sum += 6;
-sum += 7;
-sum += 8;
-sum += 9;
-sum += 10;
-
-console.log(sum); // 55
