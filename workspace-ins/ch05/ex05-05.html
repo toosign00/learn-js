@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List App</title>
+</head>
+<body>
+  <div id="todo">
+    <header>
+      <h1>Todo List - 목록 조회 🙂</h1>
+    </header>
+    <div id="main">
+      <div id="container">
+        <ul>
+          <li>
+            <h2>쇼핑 목록</h2>
+            <div class="todoinput">
+              <input type="text" autofocus>
+              <button type="button" onclick="handleAdd()">추가</button>
+            </div>
+            <ul class="todolist">
+              <li>
+                <span>1</span>
+                <span><s>샘플1</s></span>
+                <button type="button">삭제</button>
+              </li>
+              <li>
+                <span>2</span>
+                <span>샘플2</span>
+                <button type="button">삭제</button>
+              </li>
+              <li>
+                <span>3</span>
+                <span>샘플3</span>
+                <button type="button">삭제</button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <p>멋쟁이 사자처럼 FrontEnd BootCamp</p>
+    </footer>
+  </div>
+
+  <script>
+    // 한건의 Todo 객체를 받아서 DOM 객체로 만들어 반환
+    function getTodoItemElem(item){
+      // item -> { no: 3, title: '라면', done: true } // Todo 객체
+      /* DOM 객체
+      return <li>
+        <span>3</span>
+        <span>샘플3</span>
+        <button type="button">삭제</button>
+      </li>
+      */
+
+      // <li>
+      const liElem = document.createElement('li');
+      // <span>
+      const noElem = document.createElement('span');
+      // <span>
+      const titleElem = document.createElement('span');
+      // <button>
+      const deleteElem = document.createElement('button');
+
+
+      // 3
+      const noTxt = document.createTextNode(item.no);
+      // 샘플3
+      const titleTxt = document.createTextNode(item.title);
+      // 삭제
+      const deleteTxt = document.createTextNode('삭제');
+
+      return liElem;
+    }
+
+
+    // "추가" 버튼 클릭 이벤트 핸들러
+    function handleAdd(){
+      addItem();
+    }
+
+    // 할일 추가
+    function addItem(title){
+      const item = {
+        no: 4,
+        title: '테스트',
+        done: false
+      };
+      const todoLi = getTodoItemElem(item);
+      console.log(todoLi);
+    }
+
+    // 완료/미완료 처리
+    function toggleDone(no){
+
+    }
+
+    // 할일 삭제
+    function deleteItem(no){
+      
+    }
+  </script>
+</body>
+</html>
