@@ -38,38 +38,38 @@
 600
 */
 
-const fs = require('fs');
-const fileData = fs.readFileSync(0).toString().trim().split(' ');
+function main() {
+  const data = getData();
+  // console.log(data); // [ [ 6, 2, 5 ] ]
+  const n1 = data[0][0];
+  const n2 = data[0][1];
+  const n3 = data[0][2];
 
-const a = parseInt(fileData[0]);
-const b = parseInt(fileData[1]);
-const c = parseInt(fileData[2]);
+  let point = 0;
 
-// 같은 눈이 2개인 경우의 변수 선언
-let sameNumber;
+  if (n1 === n2 && n2 === n3) {
+    point = 10000 + n1 * 1000;
+  } else if (n1 === n2 || n2 === n3) {
+    point = 1000 + n2 * 100;
+  } else if (n1 === n3) {
+    point = 1000 + n1 * 100;
+  } else {
+    point = Math.max(n1, n2, n3) * 100;
+  }
 
-if (a === b) {
-  // a와 b가 같은 경우
-  sameNumber = a;
-} else if (b === c) {
-  // b와 c가 같은 경우
-  sameNumber = b;
-} else {
-  // a와 c가 같은 경우
-  sameNumber = c;
+  console.log(point);
 }
+main();
 
-
-if (a === b && b === c) {
-  // 모두 같은 경우
-  // a, b, c 중 아무거나 사용해도 상관없음
-  console.log(10000 + a * 1000);
-} else if (a === b || a === c || b === c) {
-  // 같은 눈이 2개인 경우
-  // sameNumber에 같은 눈의 값을 저장했으므로 sameNumber를 사용
-  console.log(1000 + sameNumber * 100);
-} else {
-  // 모두 다른 경우
-  // Math.max를 사용하여 가장 큰 눈을 찾음
-  console.log(Math.max(a, b, c) * 100);
+function getData() {
+  const fs = require("fs");
+  const fileData = fs.readFileSync(0).toString();
+  const arr = fileData.trim().split("\n");
+  const result = [];
+  for (let row of arr) {
+    const rowArr = row.split(' ');
+    for (let k=0; k<rowArr.length; k++) rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    result.push(rowArr);
+  }
+  return result;
 }

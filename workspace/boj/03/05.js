@@ -48,17 +48,32 @@ long int
 long long long long long int
 */
 
+function main() {
+  const data = getData();
+  // console.log(data);
+  const bytes = data[0][0];
+  const longTimes = bytes / 4;
 
-const fs = require("fs");
-const fileData = fs.readFileSync(0).toString().trim().split(" ");
+  let result = 'long '.repeat(longTimes);
 
-const inputData = parseInt(fileData[0]);
+  // let result = '';
+  // for (let i=0; i<longTimes; i++) {
+  //   result += 'long ';
+  // }
 
-let N = inputData / 4 - 1; // long의 개수
-let longString = "long"; // long 문자열
-
-for (let i = 0; i < N; i++) {
-  longString += " long"; // long을 추가
+  console.log(result + 'int');
 }
+main();
 
-console.log(`${longString} int`); // 결과 출력
+function getData() {
+  const fs = require("fs");
+  const fileData = fs.readFileSync(0).toString();
+  const arr = fileData.trim().split("\n");
+  const result = [];
+  for (let row of arr) {
+    const rowArr = row.split(' ');
+    for (let k=0; k<rowArr.length; k++) rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    result.push(rowArr);
+  }
+  return result;
+}

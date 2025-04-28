@@ -29,16 +29,25 @@
 7
 */
 
-const fs = require('fs');
-const fileData = fs.readFileSync(0).toString().trim().split('\n');
+function main() {
+  const data = getData();
+  // console.log(data); // [ [ 5 ], [ 1, 1 ], [ 2, 3 ], [ 3, 4 ], [ 9, 8 ], [ 5, 2 ] ]
+  for (let i = 1; i<data.length; i++) {
+    const rowArr = data[i];
+    console.log(rowArr[0] + rowArr[1]);
+  }
+}
+main();
 
-const testCase = parseInt(fileData[0]);
-
-for (let i = 1; i <= testCase; i++) {
-  const A = parseInt(fileData[i].split(' ')[0]);
-  const B = parseInt(fileData[i].split(' ')[1]);
-
-  const result = A + B;
-
-  console.log(result);
+function getData() {
+  const fs = require("fs");
+  const fileData = fs.readFileSync(0).toString();
+  const arr = fileData.trim().split("\n");
+  const result = [];
+  for (let row of arr) {
+    const rowArr = row.split(' ');
+    for (let k=0; k<rowArr.length; k++) rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    result.push(rowArr);
+  }
+  return result;
 }

@@ -136,23 +136,41 @@ No
 No
 */
 
-const fs = require('fs');
-const input = fs.readFileSync(0).toString().trim().split('\n');
+function main() {
+  const data = getData();
 
-let totalPrice = parseInt(input[0]); // 영수증에 적힌 총 금액
-let T = parseInt(input[1]); // 물건의 종류 수
+  /*
+  [
+    [ 260000 ],
+    [ 4 ],
+    [ 20000, 5 ],
+    [ 30000, 2 ],
+    [ 10000, 6 ],
+    [ 5000, 8 ]
+  ]
+  */
+  // console.log(data);
 
-for (let i = 2; i < T + 2; i++) {
-  const price = input[i].split(' ');
-  const itemPrice = parseInt(price[0]); // 물건의 가격
-  const itemCount = parseInt(price[1]); // 물건의 개수
+  const totalPrice = data[0][0];
+  let sum = 0;
+  for (let i=2; i<data.length; i++) {
+    const rowData = data[i];
+    sum += rowData[0] * rowData[1];
+  }
 
-  totalPrice -= itemPrice * itemCount; // 총 금액에서 물건의 가격과 개수를 곱한 값을 빼기
+  console.log(totalPrice === sum ? 'Yes' : 'No');
 }
+main();
 
-if (totalPrice === 0) {
-  console.log('Yes'); // 총 금액이 0이면 일치함
-}
-else {
-  console.log('No'); // 총 금액이 0이 아니면 일치하지 않음
+function getData() {
+  const fs = require("fs");
+  const fileData = fs.readFileSync(0).toString();
+  const arr = fileData.trim().split("\n");
+  const result = [];
+  for (let row of arr) {
+    const rowArr = row.split(' ');
+    for (let k=0; k<rowArr.length; k++) rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    result.push(rowArr);
+  }
+  return result;
 }
