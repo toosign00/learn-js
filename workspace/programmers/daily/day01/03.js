@@ -22,7 +22,7 @@ stringstringstringstringstring
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
 let input = [];
@@ -34,9 +34,19 @@ rl.on('line', function (line) {
   n = Number(input[1]);
 
   let result = '';
-  for(let i=0; i<n; i++){ // 0, 1, 2, 3, 4
+  for (let i = 0; i < n; i++) {
+    // 0, 1, 2, 3, 4
     result += str; // 'string', 'stringstring', 'stringstringstring', 'stringstringstringstring', 'stringstringstringstringstring'
   }
 
   console.log(result);
+
+  function 문자열반복(str, n) {
+    result = '';
+    result = str.repeat(n);
+
+    return console.log(result);
+  }
+
+  문자열반복(str, n);
 });
