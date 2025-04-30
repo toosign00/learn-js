@@ -196,3 +196,5 @@ dist
 .history
 PPT/~$*
 tempCode**.js
+workspace-ins/ch07/*.js
+.github
